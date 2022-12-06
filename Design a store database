@@ -1,0 +1,35 @@
+CREATE TABLE b_store (id INTEGER PRIMARY KEY, item TEXT, color TEXT, quantity INTEGER, aisle TEXT, price INTEGER);
+
+INSERT INTO b_store VALUES (1, "Hat", "Red", 5, "B2", 14.99);
+INSERT INTO b_store VALUES (2, "Sunglasses", "Black", 7, "A1", 9.99);
+INSERT INTO b_store VALUES (3, "Longsleeve", "Blue", 12, "C1", 15.99);
+INSERT INTO b_store VALUES (4, "Shortsleeve", "Blue", 11, "C2", 10.99);
+INSERT INTO b_store VALUES (5, "Shorts", "Black", 13,  "C3", 16.99);
+INSERT INTO b_store VALUES (6, "Longsleeve", "Red", 12, "C1", 15.99);
+INSERT INTO b_store VALUES (7, "Longsleeve", "Green", 12, "C1", 15.99);
+INSERT INTO b_store VALUES (8, "Longsleeve", "Black", 12, "C1", 15.99);
+INSERT INTO b_store VALUES (9, "Shortsleeve", "Red", 11, "C2", 10.99);
+INSERT INTO b_store VALUES (10, "Shortsleeve", "Green", 11, "C2", 10.99);
+INSERT INTO b_store VALUES (11, "Shortsleeve", "Black", 11, "C2", 10.99);
+INSERT INTO b_store VALUES (12, "Shorts", "Red", 13,  "C3", 16.99);
+INSERT INTO b_store VALUES (13, "Shorts", "Blue", 13,  "C3", 16.99);
+INSERT INTO b_store VALUES (14, "Shorts", "Green", 13,  "C3", 16.99);
+INSERT INTO b_store VALUES (15, "Hat", "Black", 5, "B2", 14.99);
+INSERT INTO b_store VALUES (16, "Hat", "Blue", 5, "B2", 14.99);
+
+--display the database ordered by price.
+SELECT * FROM b_store
+ORDER BY price;
+
+--What is the quantity of all stock total?
+SELECT SUM(quantity) 
+FROM b_store;
+
+--What is the sum of items grouped by price?
+SELECT price, SUM(quantity) FROM b_store GROUP BY price;
+
+--what is the avg price of items in the bulk section? 
+SELECT AVG(price) "avg blue color item price"
+FROM b_store
+where color='Blue'; 
+
